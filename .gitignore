@@ -5,7 +5,7 @@
 *.o
 *.ko
 *.obj
-*.elf
+# *.elf
 
 # Linker output
 *.ilk
@@ -50,3 +50,24 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Assembler
+
+*.lst
+*.s19
+
+# Библиотеки по ММвП
+
+4.6 2012q4/
+4.9 2015q1/
+cm3/
+MAKE/
+
+# Мусор протеуса
+
+*.pdsbak
+*.workspace
+
+# Мусор эклипса
+
+*.metadata
