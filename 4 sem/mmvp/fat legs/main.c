@@ -20,9 +20,9 @@ volatile int32_t ITM_RxBuffer;                    /*!< external variable to rece
 
 /// Pins to configure for the application.
 const Pin LedControlPins[] = {
-		D0, D1, D2, D3,
-		D4, D5, D6, D7,
-		CS0, CS1,
+	D0, D1, D2, D3,
+	D4, D5, D6, D7,
+	CS0, CS1,
 };
 #define CS0_IND		8
 #define CS1_IND		9
@@ -254,28 +254,6 @@ static uint8_t aunFont[][STR_QUANTITY] = {
 		column_6 | column_5 | column_1 | column_0,
 		column_7 | column_6 | column_1 | column_0,
 	},
-
-	/*
-	{
-		// 76543210
-		// __111111
-		// _11_____
-		// 11______
-		// 11______
-		// 11______
-		// 11______
-		// _11_____
-		// __111111
-		column_5 | column_4 | column_3 | column_2 | column_1 | column_0,
-		column_6 | column_5,
-		column_7 | column_6,
-		column_7 | column_6,
-		column_7 | column_6,
-		column_7 | column_6,
-		column_6 | column_5,
-		column_5 | column_4 | column_3 | column_2 | column_1 | column_0,
-	},
-	*/
 };
 
 void Delay ( unsigned long nTime );
