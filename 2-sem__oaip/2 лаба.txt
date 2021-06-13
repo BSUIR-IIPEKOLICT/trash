@@ -1,0 +1,96 @@
+// Библиотеки
+
+#include <iostream> // Библия для работы с вводом/выводом
+#include <math.h> // Матан
+#include <windows.h> // Системная библия
+using namespace std; // Используемое пространство имен
+
+int main()
+{
+    HANDLE out_handle = GetStdHandle(STD_OUTPUT_HANDLE);
+    COORD crd = { 45, 35 }; // Устанавливаю свой размер окна
+    SMALL_RECT src = { 0, 0, crd.X - 1, crd.Y - 1 }; // Убиваю полосы прокрутки
+    SetConsoleWindowInfo(out_handle, true, &src);
+    SetConsoleScreenBufferSize(out_handle, crd);
+    setlocale(LC_ALL, "rus"); // Локализация
+    double x, fx=0, y, z, a, c, b1, b2, b3; // Переменные мои
+    int v1, v2;
+
+     // Ввод 3 переменных
+
+    cout << "Введите a, c, z:\n" << endl; // Текст, поясняющий, что необходимо ввести
+    cin >> a >> c >> z; // Считывание 3 переменных
+    cout << "\n---------------------------------------------\n"; // Разграничители для визуала
+    cout << "a = " << a << endl << "c = " << c << endl << "z = " << z << endl; // Так, для наглядности. По сути не нужно
+    cout << "\n---------------------------------------------\n"; // Разграничители для визуала
+
+    if (z > 1)
+    {
+        x = 1 / (sqrt(z - 1));
+        cout << "В данном случае x = 1 / sqrt(z - 1)\n" << endl;
+    }
+    else
+    {
+        x = pow(z, 2) + 1;
+        cout << "В данном случае x = z^2 + 1\n" << endl;
+    }
+
+    cout << "Выберите цифру, соответствующую значению фX:\n" << endl;
+    cout << "1: 2*x\n2: x^2\n3: x/3\n" << endl;
+    cin >> v1;
+
+    switch (v1)
+    {
+    case 1:
+        fx = 2 * x;
+        cout << "\nВыбрано фx = 2 * x\n" << endl;
+        break;
+    case 2:
+        fx = pow(x, 2);
+        cout << "\nВыбрано фx = x^2\n" << endl;
+        break;
+    case 3:
+        fx = x / 3;
+        cout << "\nВыбрано фx = x / 3\n" << endl;
+        break;
+    default:
+        cout << "\nЕще раз, для альтернативно одаренных:\n" << endl;
+        cout << "1: 2*x\n2: x^2\n3: x/3\n" << endl;
+        cin >> v2;
+
+        switch (v2)
+        {
+        case 1:
+            fx = 2 * x;
+            cout << "\nВыбрано фx = 2 * x\n" << endl;
+            break;
+        case 2:
+            fx = pow(x, 2);
+            cout << "\nВыбрано фx = x^2)\n" << endl;
+            break;
+        case 3:
+            fx = x / 3;
+            cout << "\nВыбрано фx = x / 3\n" << endl;
+            break;
+        default:
+            cout << "\nВсе ясно, автор не умеет читать\n\nВыбрано фx = 0\n" << endl;
+            break;
+        }
+        break;
+    }
+
+     // Решение примера
+
+    b1 = a * sin(pow(fx, 2) - 1);
+    b2 = c * log(fabs(x));
+    b3 = exp(x);
+    y = b1 + b2 + b3;
+
+    // Вывод результата
+
+    cout << "---------------------------------------------"; // Разграничители для визуала
+    cout << "\nY = " << y << endl;
+    cout << "\n---------------------------------------------\n"; // Разграничители для визуала
+    system("pause");
+    return 0;
+}
